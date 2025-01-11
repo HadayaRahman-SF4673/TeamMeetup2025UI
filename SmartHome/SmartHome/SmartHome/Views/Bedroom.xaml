@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:effectsView="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="SmartHome.Bedroom">
+    <ScrollView HeightRequest="630">
+        <VerticalStackLayout>
+            <cards:SfCardView BorderWidth="0" CornerRadius="30" Margin="10,20,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="450">
+                <VerticalStackLayout>
+                    <Label Text="Smart Light" Margin="10" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <FlexLayout x:Name="list"
+                    Direction="Row"
+                    Wrap="Wrap"
+                    AlignItems="Start"
+                    JustifyContent="Center"
+                    >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <effectsView:SfEffectsView>
+                                    <effectsView:SfEffectsView.Clip>
+                                        <EllipseGeometry Center="35,35" RadiusX="30" RadiusY="30"/>
+                                    </effectsView:SfEffectsView.Clip>
+                                <Border WidthRequest="60"
+                                        HeightRequest="60"
+                                        VerticalOptions="Start"
+                                        StrokeThickness="1"
+                                        HorizontalOptions="Start"
+                                        Margin="5">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="50" />
+                                    </Border.StrokeShape>
+                                    <Border.Background>
+                                        <SolidColorBrush Color="{Binding .}" />
+                                    </Border.Background>
+                                </Border>
+                                </effectsView:SfEffectsView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                    <switch:SfSwitch Margin="10,40,10,10" x:Name="lightSwitch" IsOn="True" StateChanged="lightSwitch_StateChanged" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup  x:Name="CommonStates">
+                                <VisualState x:Name="On">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                    ThumbBackground="#77a0d3"
+                                                    ThumbStroke="#77a0d3"
+                                                    TrackBackground="#22029BFF"
+                                                    TrackStroke="#77a0d3"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Off">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                    ThumbBackground="Gray"
+                                                    ThumbStroke="Gray"
+                                                    TrackBackground="LightGray"
+                                                    TrackStroke="Gray"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </switch:SfSwitch>
+                </VerticalStackLayout>
+            </cards:SfCardView>
+            <cards:SfCardView CornerRadius="30" Margin="10,10,10,10" BorderWidth="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="500">
+                <VerticalStackLayout>
+                    <Label Text="Smart Fan" Margin="10" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <gauge:SfRadialGauge x:Name="fanGauge" Margin="20,10,20,0"  BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                        <gauge:RadialAxis RadiusFactor="0.5"  StartAngle="90" ShowLabels="False" EndAngle="90" Interval="1" ShowTicks="False" Minimum="0" Maximum="5">
+                            <gauge:RadialAxis.Shadow>
+                                <Shadow x:Name="fanDialBackground" Brush="LightBlue" Opacity="0.3"/>
+                            </gauge:RadialAxis.Shadow>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Ellipse x:Name="fanDial" WidthRequest="148" HeightRequest="148" BackgroundColor="LightSkyBlue"/>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle x:Name="fanControlBackground1" Fill="#77a0d3"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                        </gauge:RadialAxis>
+                        <gauge:RadialAxis  StartAngle="90" ShowFirstLabel="False" EndAngle="90" Interval="1" ShowTicks="False" Minimum="-1" Maximum="5">
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:ShapePointer StepFrequency="1" OverlayRadius="0" ShapeHeight="25" ShapeWidth="25" ShapeType="Triangle" Offset="100" Value="0" IsInteractive="True"/>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle x:Name="fanControlBackground2" Fill="#77a0d3"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.AxisLabelStyle>
+                                <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontAttributes="Bold" FontSize="15"/>
+                            </gauge:RadialAxis.AxisLabelStyle>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge>
+                    <switch:SfSwitch Margin="10,20,10,10" x:Name="fanSwitch" IsOn="True" StateChanged="fanSwitch_StateChanged" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup  x:Name="CommonStates">
+                                <VisualState x:Name="On">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                    ThumbBackground="#77a0d3"
+                                                    ThumbStroke="#77a0d3"
+                                                    TrackBackground="#22029BFF"
+                                                    TrackStroke="#77a0d3"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Off">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                    ThumbBackground="Gray"
+                                                    ThumbStroke="Gray"
+                                                    TrackBackground="LightGray"
+                                                    TrackStroke="Gray"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </switch:SfSwitch>
+                </VerticalStackLayout>
+            </cards:SfCardView>
+            <cards:SfCardView CornerRadius="70" Margin="10,10,10,10" BorderWidth="0" HeightRequest="80" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                <Label Text="Add More Devices" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </cards:SfCardView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

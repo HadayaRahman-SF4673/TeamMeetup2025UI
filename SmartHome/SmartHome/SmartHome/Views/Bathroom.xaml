@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauges="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="SmartHome.Bathroom">
+    <ScrollView HeightRequest="630">
+        <VerticalStackLayout>
+            <cards:SfCardView BorderWidth="0" CornerRadius="30" Margin="10,20,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="450">
+                <VerticalStackLayout>
+                    <Label Text="Smart Water Heater" Margin="10" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <gauges:SfRadialGauge x:Name="radialGauge" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="300" HeightRequest="300">
+                        <gauges:SfRadialGauge.Axes>
+                            <gauges:RadialAxis Minimum="0" Maximum="50">
+                                <gauges:RadialAxis.AxisLabelStyle>
+                                    <gauges:GaugeLabelStyle TextColor="{AppThemeBinding Light=#282828, Dark=White}" 
+                                               FontAttributes="Bold"
+                                               FontSize="15"/>
+                                </gauges:RadialAxis.AxisLabelStyle>
+                                <gauges:RadialAxis.Ranges>
+                                    <gauges:RadialRange StartValue="0" EndValue="50" >
+                                        <gauges:RadialRange.GradientStops>
+                                            <gauges:GaugeGradientStop Value="0"
+                                                 Color="Green" />
+                                            <gauges:GaugeGradientStop Value="20"
+                                                 Color="Yellow" />
+                                            <gauges:GaugeGradientStop Value="30"
+                                                 Color="Orange" />
+                                            <gauges:GaugeGradientStop Value="40"
+                                                 Color="OrangeRed" />
+                                            <gauges:GaugeGradientStop Value="50"
+                                                 Color="#FFF80759" />
+                                        </gauges:RadialRange.GradientStops>
+                                    </gauges:RadialRange>
+                                </gauges:RadialAxis.Ranges>
+                                <gauges:RadialAxis.Pointers>
+                                    <gauges:NeedlePointer Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" NeedleLength="80" NeedleLengthUnit="Pixel" >
+                                    </gauges:NeedlePointer>
+                                </gauges:RadialAxis.Pointers>
+                            </gauges:RadialAxis>
+                        </gauges:SfRadialGauge.Axes>
+                    </gauges:SfRadialGauge>
+                    <gauges:SfLinearGauge x:Name="linearGauge" Minimum="0" Maximum="50" WidthRequest="200" ShowTicks="False" ShowLabels="False" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                        <gauges:SfLinearGauge.LineStyle>
+                            <gauges:LinearLineStyle x:Name="pointerBackground" Fill="#C9FCFD"/>
+                        </gauges:SfLinearGauge.LineStyle>
+                        <gauges:SfLinearGauge.BarPointers>
+                            <gauges:BarPointer x:Name="pointer" Fill="#77a0d3" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" />
+                        </gauges:SfLinearGauge.BarPointers>
+                        <gauges:SfLinearGauge.MarkerPointers>
+                            <gauges:LinearShapePointer IsInteractive="True" x:Name="primaryPointer2" ShapeType="Circle" Value="15" Position="Cross"/>
+                        </gauges:SfLinearGauge.MarkerPointers>
+                    </gauges:SfLinearGauge>
+                    <switch:SfSwitch Margin="10,20,10,10" x:Name="heaterSwitch" StateChanged="heaterSwitch_StateChanged" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup  x:Name="CommonStates">
+                                <VisualState x:Name="On">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                    ThumbBackground="#77a0d3"
+                                    ThumbStroke="#77a0d3"
+                                    TrackBackground="#22029BFF"
+                                    TrackStroke="#77a0d3"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Off">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                    ThumbBackground="Gray"
+                                    ThumbStroke="Gray"
+                                    TrackBackground="LightGray"
+                                    TrackStroke="Gray"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </switch:SfSwitch>
+                </VerticalStackLayout>
+            </cards:SfCardView>
+            <cards:SfCardView CornerRadius="70" Margin="10,10,10,10" BorderWidth="0" HeightRequest="80" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                <Label Text="Add More Devices" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </cards:SfCardView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="SmartHome.Kitchen">
+    <ScrollView HeightRequest="630">
+        <VerticalStackLayout>
+            <cards:SfCardView BorderWidth="0" CornerRadius="30" Margin="10,20,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="600">
+                <StackLayout>
+                    <Label Text="Smart Fridge" Margin="0,30,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <gauge:SfRadialGauge x:Name="fridgeGauge" Margin="20,0,20,0"  BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                        <gauge:RadialAxis Interval="5" Minimum="0" Maximum="40" LabelFormat="0°C">
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle x:Name="secondaryPointer1Background" Fill="#C9FCFD"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.AxisLabelStyle>
+                                <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Light=#282828, Dark=White}" 
+                                               FontAttributes="Bold"
+                                               FontSize="15"/>
+                            </gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:RangePointer x:Name="secondaryPointer1" Value="{Binding Source={x:Reference primayPointer1},Path=Value}"
+                                    Fill="#77a0d3" />
+                                <gauge:ShapePointer StepFrequency="2.5" ShapeHeight="25" ShapeWidth="25" ShapeType="Circle" x:Name="primayPointer1" Value="20" IsInteractive="True"/>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="Main Compartment"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#282828, Dark=White}" 
+                                   FontSize="14" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+
+                    </gauge:SfRadialGauge>
+                    <gauge:SfLinearGauge x:Name="freezerGauge" LabelCreated="SfLinearGauge_LabelCreated" Margin="20,10,20,0" Minimum="0" Maximum="5" Interval="1" MinorTicksPerInterval="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                        <gauge:SfLinearGauge.LineStyle>
+                            <gauge:LinearLineStyle x:Name="secondaryPointer2Background" Fill="#C9FCFD"/>
+                        </gauge:SfLinearGauge.LineStyle>
+                        <gauge:SfLinearGauge.LabelStyle>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="15"
+                                           TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
+                        </gauge:SfLinearGauge.LabelStyle>
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer x:Name="secondaryPointer2" Fill="#77a0d3" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" />
+                        </gauge:SfLinearGauge.BarPointers>
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearShapePointer ValueChanged="primaryPointer2_ValueChanged" StepFrequency="1" IsInteractive="True" x:Name="primaryPointer2" Value="3"/>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                    <Label Text="Freezer Compartment" Margin="0,20,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <switch:SfSwitch Margin="10,20,10,10" x:Name="fridgeSwitch" StateChanged="fridgeSwitch_StateChanged" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup  x:Name="CommonStates">
+                                <VisualState x:Name="On">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                        ThumbBackground="#77a0d3"
+                                                        ThumbStroke="#77a0d3"
+                                                        TrackBackground="#22029BFF"
+                                                        TrackStroke="#77a0d3"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Off">
+                                    <VisualState.Setters>
+                                        <Setter Property="SwitchSettings">
+                                            <Setter.Value>
+                                                <switch:SwitchSettings
+                                                        ThumbBackground="Gray"
+                                                        ThumbStroke="Gray"
+                                                        TrackBackground="LightGray"
+                                                        TrackStroke="Gray"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </switch:SfSwitch>
+                </StackLayout>
+            </cards:SfCardView>
+            <Grid Margin="10,10,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <cards:SfCardView CornerRadius="30" BorderWidth="0" HeightRequest="120" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" Grid.Column="0" Margin="0,0,5,10">
+                    <StackLayout>
+                        <Label Text="Kitchen Light" Margin="0,20,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <switch:SfSwitch Margin="10,20,10,10" >
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup  x:Name="CommonStates">
+                                    <VisualState x:Name="On">
+                                        <VisualState.Setters>
+                                            <Setter Property="SwitchSettings">
+                                                <Setter.Value>
+                                                    <switch:SwitchSettings
+                                                        ThumbBackground="#77a0d3"
+                                                        ThumbStroke="#77a0d3"
+                                                        TrackBackground="#22029BFF"
+                                                        TrackStroke="#77a0d3"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Off">
+                                        <VisualState.Setters>
+                                            <Setter Property="SwitchSettings">
+                                                <Setter.Value>
+                                                    <switch:SwitchSettings
+                                                        ThumbBackground="Gray"
+                                                        ThumbStroke="Gray"
+                                                        TrackBackground="LightGray"
+                                                        TrackStroke="Gray"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </switch:SfSwitch>
+                    </StackLayout>
+                </cards:SfCardView>
+                <cards:SfCardView CornerRadius="30" BorderWidth="0" HeightRequest="120" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" Grid.Column="1" Margin="5,0,0,10">
+                    <StackLayout>
+                        <Label Text="Exhaust Fan" Margin="0,20,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <switch:SfSwitch Margin="10,20,10,10" >
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup  x:Name="CommonStates">
+                                    <VisualState x:Name="On">
+                                        <VisualState.Setters>
+                                            <Setter Property="SwitchSettings">
+                                                <Setter.Value>
+                                                    <switch:SwitchSettings
+                                                        ThumbBackground="#77a0d3"
+                                                        ThumbStroke="#77a0d3"
+                                                        TrackBackground="#22029BFF"
+                                                        TrackStroke="#77a0d3"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Off">
+                                        <VisualState.Setters>
+                                            <Setter Property="SwitchSettings">
+                                                <Setter.Value>
+                                                    <switch:SwitchSettings
+                                                        ThumbBackground="Gray"
+                                                        ThumbStroke="Gray"
+                                                        TrackBackground="LightGray"
+                                                        TrackStroke="Gray"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </switch:SfSwitch>
+                    </StackLayout>
+                </cards:SfCardView>
+            </Grid>
+            <cards:SfCardView CornerRadius="70" Margin="10,10,10,10" BorderWidth="0" HeightRequest="80" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                <Label Text="Add More Devices" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </cards:SfCardView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

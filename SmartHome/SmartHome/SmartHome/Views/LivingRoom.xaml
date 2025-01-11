@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu"
+             xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             xmlns:segmentedControl="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="SmartHome.LivingRoom">
+    
+        <Grid>
+        <ScrollView HeightRequest="630">
+            <VerticalStackLayout>
+                <cards:SfCardView BorderWidth="0" Margin="10,20,10,10" CornerRadius="30" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="470">
+                    <VerticalStackLayout>
+                        <Label Text="Smart TV Control" Margin="0,30,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <buttons:SfButton Margin="5,20,5,5" Text="&#xE7E8;" FontSize="28" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="{AppThemeBinding Light=White, Dark=#282828}" FontFamily="FontIcons" Background="{AppThemeBinding Light=#282828, Dark=White}"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                        <AbsoluteLayout HeightRequest="200">
+                            <buttons:SfButton ImageSource="{AppThemeBinding Light=returnlight.png,Dark=returndark.png}" ShowIcon="True" Padding="5" Margin="5" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="10,-10"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                            <buttons:SfButton ImageSource="{AppThemeBinding Light=homelight.png,Dark=homedark.png}" ShowIcon="True" Padding="5" Margin="5" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="285,-10"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                            <radialMenu:SfRadialMenu MaximumWidthRequest="180" Point="60,60" MaximumHeightRequest="200" EnableRotation="False" Closing="SfRadialMenu_Closing" AbsoluteLayout.LayoutBounds="40,0" HeightRequest="180" CenterButtonBackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" CenterButtonStroke="{AppThemeBinding Light=White, Dark=#282828}" LayoutType="Default" IsOpen="True" SeparatorThickness="0" RimRadius="150"  RimColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}"  CenterButtonText=""
+                 CenterButtonFontSize="28">
+                                <radialMenu:SfRadialMenu.Items>
+                                    <radialMenu:SfRadialMenuItem SegmentIndex="0" HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent" >
+                                        <radialMenu:SfRadialMenuItem.View>
+                                            <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
+                                        </radialMenu:SfRadialMenuItem.View>
+                                    </radialMenu:SfRadialMenuItem>
+                                    <radialMenu:SfRadialMenuItem SegmentIndex="1" HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent" >
+                                        <radialMenu:SfRadialMenuItem.View>
+                                            <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
+                                        </radialMenu:SfRadialMenuItem.View>
+                                    </radialMenu:SfRadialMenuItem>
+                                    <radialMenu:SfRadialMenuItem SegmentIndex="2" HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent" >
+                                        <radialMenu:SfRadialMenuItem.View>
+                                            <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
+                                        </radialMenu:SfRadialMenuItem.View>
+                                    </radialMenu:SfRadialMenuItem>
+                                    <radialMenu:SfRadialMenuItem SegmentIndex="3" HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent">
+                                        <radialMenu:SfRadialMenuItem.View>
+                                            <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
+                                        </radialMenu:SfRadialMenuItem.View>
+                                    </radialMenu:SfRadialMenuItem>
+                                </radialMenu:SfRadialMenu.Items>
+                            </radialMenu:SfRadialMenu>
+
+                        </AbsoluteLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <buttons:SfButton Margin="5" Grid.Column="0" Text="&#xEB9E;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="20,60"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                            <buttons:SfButton Margin="5" Text="&#xE768;&#xE769;" FontSize="20" FontAttributes="Bold" TextColor="White" FontFamily="FontIcons" Grid.Column="1" Background="#CBD77E" AbsoluteLayout.LayoutBounds="20,60"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                            <buttons:SfButton Margin="5" Grid.Column="2" Text="&#xEB9D;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="20,60"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                        </Grid>
+                        <gauge:SfLinearGauge Margin="20,10,20,0" Minimum="0" Maximum="100" Interval="1" MinorTicksPerInterval="0" WidthRequest="180" ShowTicks="False" ShowLabels="False" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                            <gauge:SfLinearGauge.LineStyle>
+                                <gauge:LinearLineStyle Thickness="25" CornerStyle="BothCurve" Fill="#E5CA9A"/>
+                            </gauge:SfLinearGauge.LineStyle>
+                            <gauge:SfLinearGauge.LabelStyle>
+                                <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="15"
+                                           TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
+                            </gauge:SfLinearGauge.LabelStyle>
+
+                            <gauge:SfLinearGauge.BarPointers>
+                                <gauge:BarPointer Value="20" ValueChanged="secondaryPointer2_ValueChanged" x:Name="volumePointer" PointerSize="25" CornerStyle="StartCurve" Fill="#EFDEC1" IsInteractive="True"/>
+                            </gauge:SfLinearGauge.BarPointers>
+                            <gauge:SfLinearGauge.MarkerPointers>
+                                <gauge:LinearContentPointer Value="50" Position="Cross">
+                                    <gauge:LinearContentPointer.Content>
+                                        <AbsoluteLayout>
+                                            <Label Text="&#xE992;" FontFamily="FontIcons" HeightRequest="30" FontSize="20" VerticalTextAlignment="Center" TextColor="White"/>
+                                            <Label x:Name="volumeLevel" FontSize="16" Text="20" AbsoluteLayout.LayoutBounds="10,3" VerticalTextAlignment="Center" TextColor="White"/>
+                                        </AbsoluteLayout>
+                                    </gauge:LinearContentPointer.Content>
+                                </gauge:LinearContentPointer>
+                            </gauge:SfLinearGauge.MarkerPointers>
+                        </gauge:SfLinearGauge>
+                    </VerticalStackLayout>
+                </cards:SfCardView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions >
+                    <cards:SfCardView Grid.Column="0" BorderWidth="0" Margin="10,20,10,10" CornerRadius="30" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                        <AbsoluteLayout>
+                            <gauge:SfRadialGauge AbsoluteLayout.LayoutBounds="15,85" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="200" HeightRequest="200" >
+                                <gauge:RadialAxis RadiusFactor="0.8" Background="Transparent" TickPosition="Outside" MinorTicksPerInterval="0" StartAngle="90" EndAngle="90" Maximum="800" ShowLabels="False" Interval="10" WidthRequest="200" HeightRequest="200">
+                                    <gauge:RadialAxis.MajorTickStyle>
+                                        <gauge:RadialTickStyle Length="15"/>
+                                    </gauge:RadialAxis.MajorTickStyle>
+                                    <gauge:RadialAxis.Annotations>
+                                        <gauge:GaugeAnnotation>
+                                            <gauge:GaugeAnnotation.Content>
+                                                <AbsoluteLayout VerticalOptions="Center" WidthRequest="120" HeightRequest="120">
+                                                    <Ellipse AbsoluteLayout.LayoutBounds="0,0" WidthRequest="120" HeightRequest="120" Background="{AppThemeBinding Light=White, Dark=#282828}"/>
+                                                    <Ellipse AbsoluteLayout.LayoutBounds="20,20" VerticalOptions="Center" WidthRequest="80" Opacity="0.2" HeightRequest="80" Background="{AppThemeBinding Light=Gray, Dark=#282828}"/>
+                                                    <Ellipse AbsoluteLayout.LayoutBounds="25,25" VerticalOptions="Center" WidthRequest="70" HeightRequest="70" Background="{AppThemeBinding Light=White, Dark=#282828}"/>
+                                                </AbsoluteLayout>
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+                                    </gauge:RadialAxis.Annotations>
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:ShapePointer StepFrequency="10" OverlayRadius="0" ShapeHeight="10" ShapeWidth="10" ShapeType="Triangle" Offset="60" Value="0" IsInteractive="True"/>
+                                    </gauge:RadialAxis.Pointers>
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge>
+                            <buttons:SfButton Margin="5,20,5,5" Text="&#xE7E8;" FontSize="28" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White"  FontFamily="FontIcons" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="190,20"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                        </AbsoluteLayout>
+                    </cards:SfCardView>
+                    <gauge:SfLinearGauge WidthRequest="80" Grid.Column="1" Orientation="Vertical" Margin="15,10,30,10" Minimum="0" Maximum="100" Interval="1" MinorTicksPerInterval="0" ShowTicks="False" ShowLabels="False" BackgroundColor="Transparent">
+                        <gauge:SfLinearGauge.LineStyle>
+                            <gauge:LinearLineStyle x:Name="volumeControl" Fill="{AppThemeBinding Light=#50FFFFFF, Dark=#50282828}" Thickness="80" CornerStyle="BothCurve"/>
+                        </gauge:SfLinearGauge.LineStyle>
+                        <gauge:SfLinearGauge.LabelStyle>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="15"
+                                           TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
+                        </gauge:SfLinearGauge.LabelStyle>
+
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer ValueChanged="BarPointer_ValueChanged" x:Name="volumePointer2" Value="20" PointerSize="80" CornerStyle="StartCurve" Fill="{AppThemeBinding Light=White, Dark=#282828}" IsInteractive="True"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer Value="15" Position="Cross">
+                                <gauge:LinearContentPointer.Content>
+                                    <Label x:Name="volumeControlIcon" Text="&#xE993;" FontFamily="FontIcons" FontSize="40" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                </Grid>
+                <cards:SfCardView CornerRadius="70" Margin="10,10,10,10" BorderWidth="0" HeightRequest="80" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                    <Label Text="Add More Devices" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                </cards:SfCardView>
+            </VerticalStackLayout>
+    </ScrollView>
+    <segmentedControl:SfSegmentedControl ClipToBounds="True" WidthRequest="250" HeightRequest="50" SegmentHeight="50" SegmentWidth="60"  VerticalOptions="End">
+            <segmentedControl:SfSegmentedControl.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Day</x:String>
+                    <x:String>Week</x:String>
+                    <x:String>Month</x:String>
+                    <x:String>Year</x:String>
+                </x:Array>
+            </segmentedControl:SfSegmentedControl.ItemsSource>
+            <segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
+                <segmentedControl:SelectionIndicatorSettings SelectionIndicatorPlacement="Border"/>
+            </segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
+        </segmentedControl:SfSegmentedControl>
+        </Grid>
+    
+</ContentView>
