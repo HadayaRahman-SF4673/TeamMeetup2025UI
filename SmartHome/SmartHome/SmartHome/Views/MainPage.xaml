@@ -94,12 +94,12 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <ChipControl:SfChipGroup.Items>
-                                <ChipControl:SfChip x:Name="cameraChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Cameras"/>
-                                <ChipControl:SfChip x:Name="livingRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Living Room"/>
-                                <ChipControl:SfChip x:Name="kitchenChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Kitchen"/>
-                                <ChipControl:SfChip x:Name="bathRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bathroom"/>
-                                <ChipControl:SfChip x:Name="bedRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bed Room"/>
-                            </ChipControl:SfChipGroup.Items>
+                            <ChipControl:SfChip x:Name="cameraChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Cameras"/>
+                            <ChipControl:SfChip x:Name="livingRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Living Room"/>
+                            <ChipControl:SfChip x:Name="kitchenChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Kitchen"/>
+                            <ChipControl:SfChip x:Name="bathRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bathroom"/>
+                            <ChipControl:SfChip x:Name="bedRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bed Room"/>
+                        </ChipControl:SfChipGroup.Items>
                         </ChipControl:SfChipGroup>
                     </ScrollView>
                 <popup:SfPopup OverlayMode="Transparent" x:Name="popupNotification" IsVisible="Hidden" WidthRequest="350" HeightRequest="600" HeaderTitle="Notifications">

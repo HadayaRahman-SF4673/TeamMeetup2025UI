@@ -138,17 +138,12 @@
                 </cards:SfCardView>
             </VerticalStackLayout>
     </ScrollView>
-    <segmentedControl:SfSegmentedControl ClipToBounds="True" WidthRequest="250" HeightRequest="50" SegmentHeight="50" SegmentWidth="60"  VerticalOptions="End">
-            <segmentedControl:SfSegmentedControl.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Day</x:String>
-                    <x:String>Week</x:String>
-                    <x:String>Month</x:String>
-                    <x:String>Year</x:String>
-                </x:Array>
-            </segmentedControl:SfSegmentedControl.ItemsSource>
+        <segmentedControl:SfSegmentedControl SelectionChanged="mainSegment_SelectionChanged" x:Name="mainSegment" Stroke="#282828" CornerRadius="30" SegmentCornerRadius="80" Background="#282828" SegmentBackground="#333333" ClipToBounds="True" HeightRequest="60" SegmentHeight="50" SegmentWidth="50" VerticalOptions="End">
+            <segmentedControl:SfSegmentedControl.TextStyle>
+                <segmentedControl:SegmentTextStyle FontFamily="FontIcons"/>
+            </segmentedControl:SfSegmentedControl.TextStyle>
             <segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
-                <segmentedControl:SelectionIndicatorSettings SelectionIndicatorPlacement="Border"/>
+                <segmentedControl:SelectionIndicatorSettings TextColor="#282828" Background="White" SelectionIndicatorPlacement="Fill"/>
             </segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
         </segmentedControl:SfSegmentedControl>
         </Grid>
