@@ -17,9 +17,9 @@ public partial class LivingRoom : ContentView
     {
         List<SfSegmentItem>  segmentItems = new List<SfSegmentItem>()
         {
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
+                new SfSegmentItem(){ImageSource = "homeunselected.png"},
+                new SfSegmentItem(){ImageSource = "screenunselected.png"},
+                new SfSegmentItem(){ImageSource = "linkselected.png"},
                 new SfSegmentItem(){ImageSource = "settingsunselected.png"}
         };
 
@@ -86,9 +86,9 @@ public partial class LivingRoom : ContentView
         {
             mainSegment.ItemsSource = new List<SfSegmentItem>()
             {
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
+                new SfSegmentItem(){ImageSource = "homeselected.png"},
+                new SfSegmentItem(){ImageSource = "screenunselected.png"},
+                new SfSegmentItem(){ImageSource = "linkunselected.png"},
                 new SfSegmentItem(){ImageSource = "settingsunselected.png"}
             };
         }
@@ -96,29 +96,29 @@ public partial class LivingRoom : ContentView
         {
             mainSegment.ItemsSource = new List<SfSegmentItem>()
             {
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsselected.png"}
+                new SfSegmentItem(){ImageSource = "homeunselected.png"},
+                new SfSegmentItem(){ImageSource = "screenselected.png"},
+                new SfSegmentItem(){ImageSource = "linkunselected.png"},
+                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
             };
         }
         else if (mainSegment.SelectedIndex == 2)
         {
             mainSegment.ItemsSource = new List<SfSegmentItem>()
             {
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsselected.png"}
+                new SfSegmentItem(){ImageSource = "homeunselected.png"},
+                new SfSegmentItem(){ImageSource = "screenunselected.png"},
+                new SfSegmentItem(){ImageSource = "linkselected.png"},
+                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
             };
         }
         else if(mainSegment.SelectedIndex == 3)
         {
             mainSegment.ItemsSource = new List<SfSegmentItem>()
             {
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"},
+                new SfSegmentItem(){ImageSource = "homeunselected.png"},
+                new SfSegmentItem(){ImageSource = "screenunselected.png"},
+                new SfSegmentItem(){ImageSource = "linkunselected.png"},
                 new SfSegmentItem(){ImageSource = "settingsselected.png"}
             };
         }

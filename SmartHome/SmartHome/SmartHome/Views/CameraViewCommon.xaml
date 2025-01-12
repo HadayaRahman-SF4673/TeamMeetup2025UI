@@ -58,12 +58,12 @@
                                 <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
                             </radialMenu:SfRadialMenuItem.View>
                         </radialMenu:SfRadialMenuItem>
-                        <radialMenu:SfRadialMenuItem SegmentIndex="2" Opacity="0.7" HeightRequest="40" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=#90F0F0F0, Dark=#901C1C1D}" >
+                        <radialMenu:SfRadialMenuItem SegmentIndex="2" Opacity="0.7" HeightRequest="40" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=#90F0F0F0, Dark=#801C1C1D}" >
                             <radialMenu:SfRadialMenuItem.View>
                                 <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
                             </radialMenu:SfRadialMenuItem.View>
                         </radialMenu:SfRadialMenuItem>
-                        <radialMenu:SfRadialMenuItem SegmentIndex="3" Opacity="0.7" HeightRequest="40" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=#90F0F0F0, Dark=#901C1C1D}">
+                        <radialMenu:SfRadialMenuItem SegmentIndex="3" Opacity="0.7" HeightRequest="40" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=#90F0F0F0, Dark=#801C1C1D}">
                             <radialMenu:SfRadialMenuItem.View>
                                 <Ellipse WidthRequest="8" HeightRequest="8" Fill="White"/>
                             </radialMenu:SfRadialMenuItem.View>

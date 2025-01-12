@@ -138,7 +138,7 @@
                 </cards:SfCardView>
             </VerticalStackLayout>
     </ScrollView>
-        <segmentedControl:SfSegmentedControl SelectionChanged="mainSegment_SelectionChanged" x:Name="mainSegment" Stroke="#282828" CornerRadius="30" SegmentCornerRadius="80" Background="#282828" SegmentBackground="#333333" ClipToBounds="True" HeightRequest="60" SegmentHeight="50" SegmentWidth="50" VerticalOptions="End">
+        <segmentedControl:SfSegmentedControl SelectedIndex="2" SelectionChanged="mainSegment_SelectionChanged" x:Name="mainSegment" Stroke="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" CornerRadius="30" SegmentCornerRadius="80" Background="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" SegmentBackground="#333333" ClipToBounds="True" HeightRequest="60" SegmentHeight="50" SegmentWidth="50" VerticalOptions="End">
             <segmentedControl:SfSegmentedControl.TextStyle>
                 <segmentedControl:SegmentTextStyle FontFamily="FontIcons"/>
             </segmentedControl:SfSegmentedControl.TextStyle>
