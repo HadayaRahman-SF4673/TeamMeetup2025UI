@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SmartHome/SmartHome/.vs
+/SmartHome/SmartHome/SmartHome/bin/Debug/net9.0-android
+/SmartHome/SmartHome/SmartHome/obj
+/SmartHome/SmartHome/SmartHome/SmartHome.csproj.user
