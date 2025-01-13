@@ -30,7 +30,7 @@
                 </navigationDrawer:DrawerSettings.DrawerFooterView>
                 <navigationDrawer:DrawerSettings.DrawerContentView>
                     <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
-                        <sfListView:SfListView Margin="0,30,0,0" ItemSize="70">
+                        <sfListView:SfListView Margin="0,30,0,0">
                             <sfListView:SfListView.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Profile</x:String>
