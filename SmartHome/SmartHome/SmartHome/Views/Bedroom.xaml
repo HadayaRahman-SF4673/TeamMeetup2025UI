@@ -4,14 +4,16 @@
              xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
              xmlns:effectsView="clr-namespace:Syncfusion.Maui.Toolkit.EffectsView;assembly=Syncfusion.Maui.Toolkit"
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:local="clr-namespace:SmartHome.Behaviors"
              xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="SmartHome.Bedroom">
+    <ContentView.Content>
     <ScrollView HeightRequest="630">
         <VerticalStackLayout>
             <cards:SfCardView BorderWidth="0" CornerRadius="30" Margin="10,20,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="450">
                 <VerticalStackLayout>
                     <Label Text="Smart Light" Margin="10" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                    <FlexLayout x:Name="list"
+                    <FlexLayout x:Name="colorList"
                     Direction="Row"
                     Wrap="Wrap"
                     AlignItems="Start"
@@ -40,7 +42,7 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </FlexLayout>
-                    <switch:SfSwitch Margin="10,40,10,10" x:Name="lightSwitch" IsOn="True" StateChanged="lightSwitch_StateChanged" >
+                    <switch:SfSwitch Margin="10,40,10,10" x:Name="lightSwitch" IsOn="True">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup  x:Name="CommonStates">
                                 <VisualState x:Name="On">
@@ -80,7 +82,7 @@
                     <gauge:SfRadialGauge x:Name="fanGauge" Margin="20,10,20,0"  BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
                         <gauge:RadialAxis RadiusFactor="0.5"  StartAngle="90" ShowLabels="False" EndAngle="90" Interval="1" ShowTicks="False" Minimum="0" Maximum="5">
                             <gauge:RadialAxis.Shadow>
-                                <Shadow x:Name="fanDialBackground" Brush="LightBlue" Opacity="0.3"/>
+                                <Shadow x:Name="fanDialShadow" Brush="LightBlue" Opacity="0.3"/>
                             </gauge:RadialAxis.Shadow>
                             <gauge:RadialAxis.Annotations>
                                 <gauge:GaugeAnnotation>
@@ -90,7 +92,7 @@
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>
                             <gauge:RadialAxis.AxisLineStyle>
-                                <gauge:RadialLineStyle x:Name="fanControlBackground1" Fill="#77a0d3"/>
+                                <gauge:RadialLineStyle x:Name="fanDialInnerRing" Fill="#77a0d3"/>
                             </gauge:RadialAxis.AxisLineStyle>
                         </gauge:RadialAxis>
                         <gauge:RadialAxis  StartAngle="90" ShowFirstLabel="False" EndAngle="90" Interval="1" ShowTicks="False" Minimum="-1" Maximum="5">
@@ -98,14 +100,14 @@
                                 <gauge:ShapePointer StepFrequency="1" OverlayRadius="0" ShapeHeight="25" ShapeWidth="25" ShapeType="Triangle" Offset="100" Value="0" IsInteractive="True"/>
                             </gauge:RadialAxis.Pointers>
                             <gauge:RadialAxis.AxisLineStyle>
-                                <gauge:RadialLineStyle x:Name="fanControlBackground2" Fill="#77a0d3"/>
+                                <gauge:RadialLineStyle x:Name="fanDialOuterRing" Fill="#77a0d3"/>
                             </gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialAxis.AxisLabelStyle>
                                 <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontAttributes="Bold" FontSize="15"/>
                             </gauge:RadialAxis.AxisLabelStyle>
                         </gauge:RadialAxis>
                     </gauge:SfRadialGauge>
-                    <switch:SfSwitch Margin="10,20,10,10" x:Name="fanSwitch" IsOn="True" StateChanged="fanSwitch_StateChanged" >
+                    <switch:SfSwitch Margin="10,20,10,10" x:Name="fanSwitch" IsOn="True" >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup  x:Name="CommonStates">
                                 <VisualState x:Name="On">
@@ -144,4 +146,8 @@
             </cards:SfCardView>
         </VerticalStackLayout>
     </ScrollView>
+    </ContentView.Content>
+    <ContentView.Behaviors>
+        <local:BedroomBehavior/>
+    </ContentView.Behaviors>
 </ContentView>

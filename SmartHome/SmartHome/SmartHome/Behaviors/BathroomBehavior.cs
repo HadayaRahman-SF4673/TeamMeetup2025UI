@@ -15,6 +15,7 @@ namespace SmartHome.Behaviors
         private BarPointer? pointer;
         private LinearLineStyle? pointerBackground;
 
+
         /// <summary>
         /// Begins when the behavior attached to the view.
         /// </summary>
