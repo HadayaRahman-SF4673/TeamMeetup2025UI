@@ -38,7 +38,7 @@ namespace SmartHome.Behaviors
             this.fanDialInnerRing = bindable.Content.FindByName<RadialLineStyle>("fanDialInnerRing");
             this.fanDialOuterRing = bindable.Content.FindByName<RadialLineStyle>("fanDialOuterRing");
 
-            // Initialize Default Appearance for Smart Light Contol.
+            // Initialize Default Appearance for Smart Light Control.
             BorderColors = GetColor();
             BorderGrays = GetGray();
             BindableLayout.SetItemsSource(colorList, BorderColors);
