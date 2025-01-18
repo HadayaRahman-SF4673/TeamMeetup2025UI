@@ -5,12 +5,12 @@ namespace SmartHome.Behaviors
     public class CameraPageBehavior
     {
         /// <summary>
-        /// Commannd for Cameras Page Image Buttons Pressed.
+        /// Command for Cameras Page Image Buttons Pressed.
         /// </summary>
         public ICommand ImageButtonPressed { get; set; }
 
         /// <summary>
-        /// Constructor for Cameras Page Behavior which initializes it's Command
+        /// Constructor for Cameras Page Behavior which initializes it's Command.
         /// </summary>
         public CameraPageBehavior()
         {
@@ -18,7 +18,7 @@ namespace SmartHome.Behaviors
         }
 
         /// <summary>
-        /// Method Which gets called when image button is preesed on Cameras page. 
+        /// Method Which gets called when image button is pressed on Cameras page. 
         /// </summary>
         /// <param name="cameraName"></param>
         private void OnImageButtonPressed(string cameraName)

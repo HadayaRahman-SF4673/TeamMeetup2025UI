@@ -5,8 +5,8 @@ namespace SmartHome;
 
 public partial class Bedroom : ContentView
 {
-    public static ObservableCollection<Color> BorderColors = new ObservableCollection<Color>();
-    public static ObservableCollection<Color> BorderGrays = new ObservableCollection<Color>();
+    public ObservableCollection<Color> BorderColors = new ObservableCollection<Color>();
+    public ObservableCollection<Color> BorderGrays = new ObservableCollection<Color>();
     public Bedroom()
 	{
 		InitializeComponent();
