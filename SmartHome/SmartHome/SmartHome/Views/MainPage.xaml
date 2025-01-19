@@ -114,14 +114,14 @@
                     </popup:SfPopup.PopupStyle>
                     <popup:SfPopup.ContentTemplate>
                         <DataTemplate>
-                            <sfListView:SfListView SelectionBackground="#77A0D3" ItemsSource="{Binding NotificationContents}" ItemSize="46">
+                            <sfListView:SfListView SelectionBackground="#77A0D3" x:DataType="viewModel:MainPageViewModel" ItemsSource="{Binding NotificationContents}" ItemSize="46">
                                 <sfListView:SfListView.BindingContext>
                                     <viewModel:MainPageViewModel/>
                                 </sfListView:SfListView.BindingContext>
                                 <sfListView:SfListView.ItemTemplate>
                                     <DataTemplate>
                                         <VerticalStackLayout>
-                                            <Label Margin="10" Text="{Binding .}"/>
+                                            <Label Margin="10" x:DataType="x:String" Text="{Binding .}"/>
                                             <Border Stroke="{AppThemeBinding Light=#282828, Dark=White}" StrokeThickness="1"/>
                                         </VerticalStackLayout>
                                     </DataTemplate>
