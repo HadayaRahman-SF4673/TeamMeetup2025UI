@@ -1,10 +1,6 @@
-﻿using Microsoft.Maui.Controls;
-using SmartHome.ViewModel;
-using Syncfusion.Maui.Core;
+﻿using SmartHome.ViewModel;
 using Syncfusion.Maui.RadialMenu;
-using Syncfusion.Maui.Toolkit.Buttons;
 using Syncfusion.Maui.Toolkit.SegmentedControl;
-using System.Windows.Input;
 
 namespace SmartHome.Behaviors
 {
@@ -39,6 +35,11 @@ namespace SmartHome.Behaviors
             this.menuSegment.SelectionChanged += MenuSegment_SelectionChanged;
         }
 
+        /// <summary>
+        /// Used to Change Icons According to Selected Index.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuSegment_SelectionChanged(object? sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
         {
             if (menuSegment != null && livingRoomViewModel != null)
@@ -88,6 +89,12 @@ namespace SmartHome.Behaviors
             {
                 this.controlMenu.Closing -= ControlMenu_Closing;
                 this.controlMenu = null;
+            }
+
+            if (this.menuSegment != null)
+            {
+                this.menuSegment.SelectionChanged -= MenuSegment_SelectionChanged;
+                this.menuSegment = null;
             }
 
         }
