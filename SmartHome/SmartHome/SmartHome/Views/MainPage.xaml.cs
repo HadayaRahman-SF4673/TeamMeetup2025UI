@@ -11,7 +11,6 @@ namespace SmartHome
         public MainPage()
         {
             InitializeComponent();
-            chipGroup.SelectedItem = livingRoomChip;
         }
 
         private void SfChipGroup_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.Chips.SelectionChangedEventArgs e)

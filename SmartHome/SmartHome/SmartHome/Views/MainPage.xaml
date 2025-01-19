@@ -9,13 +9,14 @@
              xmlns:sfListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
              xmlns:badgeView="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:viewModel="clr-namespace:SmartHome.ViewModel"
              x:Class="SmartHome.MainPage">
     <navigationDrawer:SfNavigationDrawer x:Name="drawer">
         <navigationDrawer:SfNavigationDrawer.DrawerSettings>
             <navigationDrawer:DrawerSettings DrawerWidth="250" DrawerFooterHeight="200" DrawerHeaderHeight="200">
                 <navigationDrawer:DrawerSettings.DrawerHeaderView>
                     <Grid BackgroundColor="#77a0d3" >
-                    <Image Source="icon.png"
+                        <Image Source="icon.png"
                        VerticalOptions="Center"
                        Aspect="Fill"
                        HorizontalOptions="Center"/>
@@ -30,19 +31,14 @@
                 </navigationDrawer:DrawerSettings.DrawerFooterView>
                 <navigationDrawer:DrawerSettings.DrawerContentView>
                     <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
-                        <sfListView:SfListView Margin="0,30,0,0"  ItemSpacing="0,10,0,10">
-                            <sfListView:SfListView.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Profile</x:String>
-                                    <x:String>Settings</x:String>
-                                    <x:String>Help</x:String>
-                                    <x:String>Contact Us</x:String>
-                                </x:Array>
-                            </sfListView:SfListView.ItemsSource>
+                        <sfListView:SfListView x:Name="navigationDrawerList" Margin="0,30,0,0" x:DataType="viewModel:MainPageViewModel" ItemsSource="{Binding ProfileOptions}" SelectionBackground="#77A0D3"  ItemSpacing="0,10,0,10">
+                            <sfListView:SfListView.BindingContext>
+                                <viewModel:MainPageViewModel/>
+                            </sfListView:SfListView.BindingContext>
                             <sfListView:SfListView.ItemTemplate>
                                 <DataTemplate>
                                     <VerticalStackLayout>
-                                        <Label Margin="10" Text="{Binding .}"/>
+                                        <Label Margin="10" x:DataType="x:String" Text="{Binding .}"/>
                                     </VerticalStackLayout>
                                 </DataTemplate>
                             </sfListView:SfListView.ItemTemplate>
@@ -53,30 +49,30 @@
         </navigationDrawer:SfNavigationDrawer.DrawerSettings>
         <navigationDrawer:SfNavigationDrawer.ContentView>
             <StackLayout BackgroundColor="{AppThemeBinding Light=#e1e3d7, Dark=#1C1B1D}" Orientation="Vertical">
-                    <Grid>
-                        <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
-                            <effectsView:SfEffectsView Margin="5" WidthRequest="72" HeightRequest="72" HorizontalOptions="Center" VerticalOptions="Center" TouchDownEffects="Ripple" AnimationCompleted="SfEffectsView_AnimationCompleted">
-                                <effectsView:SfEffectsView.Clip>
-                                    <EllipseGeometry Center="36,36" RadiusX="35" RadiusY="35"/>
-                                </effectsView:SfEffectsView.Clip>
-                                <core:SfAvatarView AvatarCharacter="Avatar10" WidthRequest="60" VerticalOptions="Center" ContentType="Custom" ImageSource="avatar.jpg" HorizontalOptions="Center" Stroke="White" StrokeThickness="3" HeightRequest="60" AvatarShape="Circle" Margin="5" >
-                                </core:SfAvatarView>
-                            </effectsView:SfEffectsView>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                <Grid>
+                    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                        <effectsView:SfEffectsView Margin="5" WidthRequest="72" HeightRequest="72" HorizontalOptions="Center" VerticalOptions="Center" TouchDownEffects="Ripple" AnimationCompleted="SfEffectsView_AnimationCompleted">
+                            <effectsView:SfEffectsView.Clip>
+                                <EllipseGeometry Center="36,36" RadiusX="35" RadiusY="35"/>
+                            </effectsView:SfEffectsView.Clip>
+                            <core:SfAvatarView AvatarCharacter="Avatar10" WidthRequest="60" VerticalOptions="Center" ContentType="Custom" ImageSource="avatar.jpg" HorizontalOptions="Center" Stroke="White" StrokeThickness="3" HeightRequest="60" AvatarShape="Circle" Margin="5" >
+                            </core:SfAvatarView>
+                        </effectsView:SfEffectsView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="End" Orientation="Horizontal">
                         <buttons:SfButton Margin="5" Clicked="SfButton_Clicked_1" ImageSource="{AppThemeBinding Light=fourdotslight.png,Dark=fourdotsdark.png}" ShowIcon="True" Padding="5" FontSize="8" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                         <badgeView:SfBadgeView Margin="0,0,10,0">
                             <badgeView:SfBadgeView.BadgeSettings>
                                 <badgeView:BadgeSettings x:Name="indicatorNotification" Type="Error"  Offset="-5, 2" Position="TopRight" Icon="Dot"/>
                             </badgeView:SfBadgeView.BadgeSettings>
                             <badgeView:SfBadgeView.Content>
-                            <buttons:SfButton x:Name="notificationButton" Text="&#xEA8F;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Margin="5" Clicked="SfButton_Clicked"  Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                                <buttons:SfButton x:Name="notificationButton" Text="&#xEA8F;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Margin="5" Clicked="SfButton_Clicked"  Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                             </badgeView:SfBadgeView.Content>
                         </badgeView:SfBadgeView>
                     </StackLayout>
-                    </Grid>
-                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                        <ChipControl:SfChipGroup x:Name="chipGroup" SelectionChanged="SfChipGroup_SelectionChanged" SelectedChipBackground="{AppThemeBinding Light=#282828, Dark=White}" SelectedChipTextColor="{AppThemeBinding Light=White, Dark=#282828}" ChipType="Choice" >
+                </Grid>
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <ChipControl:SfChipGroup x:Name="chipGroup" SelectionChanged="SfChipGroup_SelectionChanged" SelectedChipBackground="{AppThemeBinding Light=#282828, Dark=White}" SelectedChipTextColor="{AppThemeBinding Light=White, Dark=#282828}" ChipType="Choice" >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
@@ -100,9 +96,9 @@
                             <ChipControl:SfChip x:Name="bathRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bathroom"/>
                             <ChipControl:SfChip x:Name="bedRoomChip" HeightRequest="50" WidthRequest="120" Stroke="Transparent" TextColor="{AppThemeBinding Light=#282828, Dark=White}" Background="{AppThemeBinding Light=White, Dark=#282828}" CornerRadius="30" FontAttributes="Bold" Text="Bed Room"/>
                         </ChipControl:SfChipGroup.Items>
-                        </ChipControl:SfChipGroup>
-                    </ScrollView>
-                <popup:SfPopup OverlayMode="Transparent" x:Name="popupNotification" IsVisible="Hidden" WidthRequest="350" HeightRequest="600" HeaderTitle="Notifications">
+                    </ChipControl:SfChipGroup>
+                </ScrollView>
+                <popup:SfPopup OverlayMode="Transparent" x:Name="popupNotification" IsVisible="False" WidthRequest="350" HeightRequest="600" HeaderTitle="Notifications">
                     <popup:SfPopup.HeaderTemplate>
                         <DataTemplate>
                             <Label Text="Notifications" 
@@ -118,19 +114,10 @@
                     </popup:SfPopup.PopupStyle>
                     <popup:SfPopup.ContentTemplate>
                         <DataTemplate>
-                            <sfListView:SfListView ItemSize="46">
-                                <sfListView:SfListView.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Motion Detected on Entrance Camera</x:String>
-                                        <x:String>Bed Room Light is Turning On</x:String>
-                                        <x:String>Bed Room Fan is Turning On</x:String>
-                                        <x:String>Fridge is Turning On</x:String>
-                                        <x:String>Smart Heater is Turning Off</x:String>
-                                        <x:String>Bed Room Light is Turning Off</x:String>
-                                        <x:String>Bed Room Fan is Turning Off</x:String>
-                                        <x:String>Fridge is Turning Off</x:String>
-                                    </x:Array>
-                                </sfListView:SfListView.ItemsSource>
+                            <sfListView:SfListView SelectionBackground="#77A0D3" ItemsSource="{Binding NotificationContents}" ItemSize="46">
+                                <sfListView:SfListView.BindingContext>
+                                    <viewModel:MainPageViewModel/>
+                                </sfListView:SfListView.BindingContext>
                                 <sfListView:SfListView.ItemTemplate>
                                     <DataTemplate>
                                         <VerticalStackLayout>
@@ -147,5 +134,4 @@
             </StackLayout>
         </navigationDrawer:SfNavigationDrawer.ContentView>
     </navigationDrawer:SfNavigationDrawer>
-
 </ContentPage>

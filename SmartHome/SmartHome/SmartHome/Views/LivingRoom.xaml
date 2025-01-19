@@ -67,7 +67,7 @@
                             </gauge:SfLinearGauge.LabelStyle>
 
                             <gauge:SfLinearGauge.BarPointers>
-                                <gauge:BarPointer Value="20" ValueChanged="secondaryPointer2_ValueChanged" x:Name="volumePointer" PointerSize="25" CornerStyle="StartCurve" Fill="#EFDEC1" IsInteractive="True"/>
+                                <gauge:BarPointer Value="20" x:Name="volumePointer1" PointerSize="25" CornerStyle="StartCurve" Fill="#EFDEC1" IsInteractive="True"/>
                             </gauge:SfLinearGauge.BarPointers>
                             <gauge:SfLinearGauge.MarkerPointers>
                                 <gauge:LinearContentPointer Value="50" Position="Cross">
@@ -123,7 +123,7 @@
                         </gauge:SfLinearGauge.LabelStyle>
 
                         <gauge:SfLinearGauge.BarPointers>
-                            <gauge:BarPointer ValueChanged="BarPointer_ValueChanged" x:Name="volumePointer2" Value="20" PointerSize="80" CornerStyle="StartCurve" Fill="{AppThemeBinding Light=White, Dark=#282828}" IsInteractive="True"/>
+                            <gauge:BarPointer x:Name="volumePointer2" Value="20" PointerSize="80" CornerStyle="StartCurve" Fill="{AppThemeBinding Light=White, Dark=#282828}" IsInteractive="True"/>
                         </gauge:SfLinearGauge.BarPointers>
                         <gauge:SfLinearGauge.MarkerPointers>
                             <gauge:LinearContentPointer Value="15" Position="Cross">

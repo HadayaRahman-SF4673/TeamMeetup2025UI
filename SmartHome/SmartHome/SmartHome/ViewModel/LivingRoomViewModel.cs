@@ -2,7 +2,7 @@
 
 namespace SmartHome.ViewModel
 {
-    internal class LivingRoomViewModel
+    public class LivingRoomViewModel
     {
         /// <summary>
         /// Stores Menu Item Icons.
@@ -10,7 +10,7 @@ namespace SmartHome.ViewModel
         public List<SfSegmentItem> MenuItems { get; set; }
 
         /// <summary>
-        /// Constructor to Intialize Default Values for the Icons.
+        /// Constructor to Initialize Default Values for the Icons.
         /// </summary>
         public LivingRoomViewModel()
         {
