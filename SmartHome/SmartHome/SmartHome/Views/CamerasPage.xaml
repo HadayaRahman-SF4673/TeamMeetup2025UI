@@ -23,7 +23,7 @@
                     <Grid BackgroundColor="#282828" Opacity="0.4"/>
                     <cards:SfCardView WidthRequest="100" HeightRequest="80">
                         <VerticalStackLayout VerticalOptions="Center">
-                            <ImageButton Command="{Binding ImageButtonPressed}" CommandParameter="Entrance Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
+                            <ImageButton x:DataType="local:CameraPageBehavior" Command="{Binding ImageButtonPressed}" CommandParameter="Entrance Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
                             <Label Text="View" HorizontalOptions="Center" TextColor="#282828"/>
                         </VerticalStackLayout>
                     </cards:SfCardView>
@@ -35,7 +35,7 @@
                     <Grid  BackgroundColor="#282828" Opacity="0.4"/>
                     <cards:SfCardView WidthRequest="100" HeightRequest="80">
                         <VerticalStackLayout VerticalOptions="Center">
-                            <ImageButton Command="{Binding ImageButtonPressed}" CommandParameter="Hall Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
+                            <ImageButton x:DataType="local:CameraPageBehavior" Command="{Binding ImageButtonPressed}" CommandParameter="Hall Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
                             <Label Text="View" HorizontalOptions="Center" TextColor="#282828"/>
                         </VerticalStackLayout>
                     </cards:SfCardView>
@@ -47,7 +47,7 @@
                     <Grid BackgroundColor="#282828" Opacity="0.4"/>
                     <cards:SfCardView WidthRequest="100" HeightRequest="80">
                         <VerticalStackLayout VerticalOptions="Center">
-                            <ImageButton Command="{Binding ImageButtonPressed}" CommandParameter="Corridor Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
+                            <ImageButton x:DataType="local:CameraPageBehavior" Command="{Binding ImageButtonPressed}" CommandParameter="Corridor Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
                             <Label Text="View" HorizontalOptions="Center" TextColor="#282828"/>
                         </VerticalStackLayout>
                     </cards:SfCardView>
@@ -59,7 +59,7 @@
                     <Grid BackgroundColor="#282828" Opacity="0.4"/>
                     <cards:SfCardView WidthRequest="100" HeightRequest="80">
                         <VerticalStackLayout VerticalOptions="Center">
-                            <ImageButton Command="{Binding ImageButtonPressed}" CommandParameter="Backdoor Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
+                            <ImageButton x:DataType="local:CameraPageBehavior" Command="{Binding ImageButtonPressed}" CommandParameter="Backdoor Camera" WidthRequest="70" HeightRequest="50" Source="video.png"/>
                             <Label Text="View" HorizontalOptions="Center" TextColor="#282828"/>
                         </VerticalStackLayout>
                     </cards:SfCardView>

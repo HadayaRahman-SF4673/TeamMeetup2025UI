@@ -6,9 +6,10 @@
              xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
              xmlns:segmentedControl="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:local="clr-namespace:SmartHome.Behaviors"
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              x:Class="SmartHome.LivingRoom">
-    
+    <ContentView.Content>
         <Grid>
         <ScrollView HeightRequest="630">
             <VerticalStackLayout>
@@ -19,7 +20,7 @@
                         <AbsoluteLayout HeightRequest="200">
                             <buttons:SfButton ImageSource="{AppThemeBinding Light=returnlight.png,Dark=returndark.png}" ShowIcon="True" Padding="5" Margin="5" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="10,-10"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                             <buttons:SfButton ImageSource="{AppThemeBinding Light=homelight.png,Dark=homedark.png}" ShowIcon="True" Padding="5" Margin="5" Background="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" AbsoluteLayout.LayoutBounds="285,-10"  WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
-                            <radialMenu:SfRadialMenu MaximumWidthRequest="180" Point="60,60" MaximumHeightRequest="200" EnableRotation="False" Closing="SfRadialMenu_Closing" AbsoluteLayout.LayoutBounds="40,0" HeightRequest="180" CenterButtonBackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" CenterButtonStroke="{AppThemeBinding Light=White, Dark=#282828}" LayoutType="Default" IsOpen="True" SeparatorThickness="0" RimRadius="150"  RimColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}"  CenterButtonText=""
+                            <radialMenu:SfRadialMenu MaximumWidthRequest="180" x:Name="controlMenu" Point="60,60" MaximumHeightRequest="200" EnableRotation="False" AbsoluteLayout.LayoutBounds="40,0" HeightRequest="180" CenterButtonBackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}" CenterButtonStroke="{AppThemeBinding Light=White, Dark=#282828}" LayoutType="Default" IsOpen="True" SeparatorThickness="0" RimRadius="150"  RimColor="{AppThemeBinding Light=#F0F0F0, Dark=#1C1C1D}"  CenterButtonText=""
                  CenterButtonFontSize="28">
                                 <radialMenu:SfRadialMenu.Items>
                                     <radialMenu:SfRadialMenuItem SegmentIndex="0" HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent" >
@@ -138,14 +139,17 @@
                 </cards:SfCardView>
             </VerticalStackLayout>
     </ScrollView>
-        <segmentedControl:SfSegmentedControl SelectedIndex="2" SelectionChanged="mainSegment_SelectionChanged" x:Name="mainSegment" Stroke="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" CornerRadius="30" SegmentCornerRadius="80" Background="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" SegmentBackground="#333333" ClipToBounds="True" HeightRequest="60" SegmentHeight="50" SegmentWidth="50" VerticalOptions="End">
+        <segmentedControl:SfSegmentedControl SelectedIndex="2" x:Name="menuSegment" Stroke="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" CornerRadius="30" SegmentCornerRadius="80" Background="{AppThemeBinding Light=#282828, Dark=#1C1C1D}" SegmentBackground="#333333" ClipToBounds="True" HeightRequest="60" SegmentHeight="50" SegmentWidth="50" VerticalOptions="End">
             <segmentedControl:SfSegmentedControl.TextStyle>
                 <segmentedControl:SegmentTextStyle FontFamily="FontIcons"/>
             </segmentedControl:SfSegmentedControl.TextStyle>
-            <segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
-                <segmentedControl:SelectionIndicatorSettings TextColor="#282828" Background="White" SelectionIndicatorPlacement="Fill"/>
-            </segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
-        </segmentedControl:SfSegmentedControl>
+                <segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
+                    <segmentedControl:SelectionIndicatorSettings TextColor="#282828" Background="White" SelectionIndicatorPlacement="Fill"/>
+                </segmentedControl:SfSegmentedControl.SelectionIndicatorSettings>
+            </segmentedControl:SfSegmentedControl>
         </Grid>
-    
+    </ContentView.Content>
+    <ContentView.Behaviors>
+        <local:LivingRoomBehavior/>
+    </ContentView.Behaviors>
 </ContentView>

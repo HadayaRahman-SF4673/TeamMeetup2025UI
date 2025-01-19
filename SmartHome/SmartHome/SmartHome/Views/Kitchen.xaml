@@ -23,7 +23,7 @@
                                                FontSize="15"/>
                             </gauge:RadialAxis.AxisLabelStyle>
                             <gauge:RadialAxis.Pointers>
-                                <gauge:RangePointer x:Name="secondaryPointerFridge" Value="{Binding Source={x:Reference primayPointerFridge},Path=Value}"
+                                <gauge:RangePointer x:Name="secondaryPointerFridge" x:DataType="gauge:ShapePointer" Value="{Binding Source={x:Reference primayPointerFridge},Path=Value}"
                                     Fill="#77a0d3" />
                                 <gauge:ShapePointer StepFrequency="2.5" ShapeHeight="25" ShapeWidth="25" ShapeType="Circle" x:Name="primayPointerFridge" Value="20" IsInteractive="True"/>
                             </gauge:RadialAxis.Pointers>
@@ -49,7 +49,7 @@
                                            TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
                         </gauge:SfLinearGauge.LabelStyle>
                         <gauge:SfLinearGauge.BarPointers>
-                                <gauge:BarPointer x:Name="secondaryPointerFreezer" Fill="#77a0d3" Value="{Binding Source={x:Reference primaryPointerFreezer},Path=Value}" />
+                                <gauge:BarPointer x:Name="secondaryPointerFreezer" Fill="#77a0d3" x:DataType="gauge:LinearShapePointer" Value="{Binding Source={x:Reference primaryPointerFreezer},Path=Value}" />
                         </gauge:SfLinearGauge.BarPointers>
                         <gauge:SfLinearGauge.MarkerPointers>
                             <gauge:LinearShapePointer StepFrequency="1" IsInteractive="True" x:Name="primaryPointerFreezer" Value="3"/>

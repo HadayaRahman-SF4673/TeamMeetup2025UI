@@ -1,7 +1,3 @@
-using Syncfusion.Maui.RadialMenu;
-using Syncfusion.Maui.Toolkit.SegmentedControl;
-using System.Drawing;
-
 namespace SmartHome;
 
 public partial class LivingRoom : ContentView
@@ -9,26 +5,7 @@ public partial class LivingRoom : ContentView
     public LivingRoom()
 	{
 		InitializeComponent();
-        mainSegment.ItemsSource = GenerateSegments();
 
-    }
-
-    private List<SfSegmentItem> GenerateSegments()
-    {
-        List<SfSegmentItem>  segmentItems = new List<SfSegmentItem>()
-        {
-                new SfSegmentItem(){ImageSource = "homeunselected.png"},
-                new SfSegmentItem(){ImageSource = "screenunselected.png"},
-                new SfSegmentItem(){ImageSource = "linkselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
-        };
-
-        return segmentItems;
-    }
-
-    private void SfRadialMenu_Closing(object sender, Syncfusion.Maui.RadialMenu.ClosingEventArgs e)
-    {
-        e.Cancel = true;
     }
 
     private void secondaryPointer2_ValueChanged(object sender, Syncfusion.Maui.Gauges.ValueChangedEventArgs e)
@@ -77,50 +54,6 @@ public partial class LivingRoom : ContentView
         else if (volumePointer2.Value <= 80)
         {
             volumeControlIcon.Text = "\uE995";
-        }
-    }
-
-    private void mainSegment_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
-    {
-        if(mainSegment.SelectedIndex == 0)
-        {
-            mainSegment.ItemsSource = new List<SfSegmentItem>()
-            {
-                new SfSegmentItem(){ImageSource = "homeselected.png"},
-                new SfSegmentItem(){ImageSource = "screenunselected.png"},
-                new SfSegmentItem(){ImageSource = "linkunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
-            };
-        }
-        else if (mainSegment.SelectedIndex == 1)
-        {
-            mainSegment.ItemsSource = new List<SfSegmentItem>()
-            {
-                new SfSegmentItem(){ImageSource = "homeunselected.png"},
-                new SfSegmentItem(){ImageSource = "screenselected.png"},
-                new SfSegmentItem(){ImageSource = "linkunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
-            };
-        }
-        else if (mainSegment.SelectedIndex == 2)
-        {
-            mainSegment.ItemsSource = new List<SfSegmentItem>()
-            {
-                new SfSegmentItem(){ImageSource = "homeunselected.png"},
-                new SfSegmentItem(){ImageSource = "screenunselected.png"},
-                new SfSegmentItem(){ImageSource = "linkselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsunselected.png"}
-            };
-        }
-        else if(mainSegment.SelectedIndex == 3)
-        {
-            mainSegment.ItemsSource = new List<SfSegmentItem>()
-            {
-                new SfSegmentItem(){ImageSource = "homeunselected.png"},
-                new SfSegmentItem(){ImageSource = "screenunselected.png"},
-                new SfSegmentItem(){ImageSource = "linkunselected.png"},
-                new SfSegmentItem(){ImageSource = "settingsselected.png"}
-            };
         }
     }
 }

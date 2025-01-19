@@ -37,7 +37,7 @@
                                         </gauges:RadialRange>
                                     </gauges:RadialAxis.Ranges>
                                     <gauges:RadialAxis.Pointers>
-                                        <gauges:NeedlePointer Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" NeedleLength="80" NeedleLengthUnit="Pixel" >
+                                        <gauges:NeedlePointer x:DataType="gauges:LinearPointer" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" NeedleLength="80" NeedleLengthUnit="Pixel" >
                                         </gauges:NeedlePointer>
                                     </gauges:RadialAxis.Pointers>
                                 </gauges:RadialAxis>
@@ -48,7 +48,7 @@
                                 <gauges:LinearLineStyle x:Name="pointerBackground" Fill="#C9FCFD"/>
                             </gauges:SfLinearGauge.LineStyle>
                             <gauges:SfLinearGauge.BarPointers>
-                                <gauges:BarPointer x:Name="pointer" Fill="#77a0d3" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" />
+                                <gauges:BarPointer x:Name="pointer" Fill="#77a0d3" x:DataType="gauges:LinearPointer" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" />
                             </gauges:SfLinearGauge.BarPointers>
                             <gauges:SfLinearGauge.MarkerPointers>
                                 <gauges:LinearShapePointer IsInteractive="True" x:Name="primaryPointer2" ShapeType="Circle" Value="15" Position="Cross"/>
