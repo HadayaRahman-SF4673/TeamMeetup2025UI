@@ -4,7 +4,9 @@
              xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:local="clr-namespace:SmartHome.Behaviors"
              x:Class="SmartHome.Kitchen">
+    <ContentView.Content>
     <ScrollView HeightRequest="630">
         <VerticalStackLayout>
             <cards:SfCardView BorderWidth="0" CornerRadius="30" Margin="10,20,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" HeightRequest="600">
@@ -13,7 +15,7 @@
                     <gauge:SfRadialGauge x:Name="fridgeGauge" Margin="20,0,20,0"  BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
                         <gauge:RadialAxis Interval="5" Minimum="0" Maximum="40" LabelFormat="0°C">
                             <gauge:RadialAxis.AxisLineStyle>
-                                <gauge:RadialLineStyle x:Name="secondaryPointer1Background" Fill="#C9FCFD"/>
+                                <gauge:RadialLineStyle x:Name="fridgeGaugeLineBackground" Fill="#C9FCFD"/>
                             </gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialAxis.AxisLabelStyle>
                                 <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Light=#282828, Dark=White}" 
@@ -21,9 +23,9 @@
                                                FontSize="15"/>
                             </gauge:RadialAxis.AxisLabelStyle>
                             <gauge:RadialAxis.Pointers>
-                                <gauge:RangePointer x:Name="secondaryPointer1" Value="{Binding Source={x:Reference primayPointer1},Path=Value}"
+                                <gauge:RangePointer x:Name="secondaryPointerFridge" x:DataType="gauge:ShapePointer" Value="{Binding Source={x:Reference primayPointerFridge},Path=Value}"
                                     Fill="#77a0d3" />
-                                <gauge:ShapePointer StepFrequency="2.5" ShapeHeight="25" ShapeWidth="25" ShapeType="Circle" x:Name="primayPointer1" Value="20" IsInteractive="True"/>
+                                <gauge:ShapePointer StepFrequency="2.5" ShapeHeight="25" ShapeWidth="25" ShapeType="Circle" x:Name="primayPointerFridge" Value="20" IsInteractive="True"/>
                             </gauge:RadialAxis.Pointers>
                             <gauge:RadialAxis.Annotations>
                                 <gauge:GaugeAnnotation>
@@ -38,23 +40,23 @@
                         </gauge:RadialAxis>
 
                     </gauge:SfRadialGauge>
-                    <gauge:SfLinearGauge x:Name="freezerGauge" LabelCreated="SfLinearGauge_LabelCreated" Margin="20,10,20,0" Minimum="0" Maximum="5" Interval="1" MinorTicksPerInterval="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
+                    <gauge:SfLinearGauge x:Name="freezerGauge" Margin="20,10,20,0" Minimum="0" Maximum="5" Interval="1" MinorTicksPerInterval="0" BackgroundColor="{AppThemeBinding Light=White, Dark=#282828}">
                         <gauge:SfLinearGauge.LineStyle>
-                            <gauge:LinearLineStyle x:Name="secondaryPointer2Background" Fill="#C9FCFD"/>
+                                <gauge:LinearLineStyle x:Name="freezerGaugeLineBackground" Fill="#C9FCFD"/>
                         </gauge:SfLinearGauge.LineStyle>
                         <gauge:SfLinearGauge.LabelStyle>
                             <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="15"
                                            TextColor="{AppThemeBinding Light=#282828, Dark=White}"/>
                         </gauge:SfLinearGauge.LabelStyle>
                         <gauge:SfLinearGauge.BarPointers>
-                            <gauge:BarPointer x:Name="secondaryPointer2" Fill="#77a0d3" Value="{Binding Source={x:Reference primaryPointer2},Path=Value}" />
+                                <gauge:BarPointer x:Name="secondaryPointerFreezer" Fill="#77a0d3" x:DataType="gauge:LinearShapePointer" Value="{Binding Source={x:Reference primaryPointerFreezer},Path=Value}" />
                         </gauge:SfLinearGauge.BarPointers>
                         <gauge:SfLinearGauge.MarkerPointers>
-                            <gauge:LinearShapePointer ValueChanged="primaryPointer2_ValueChanged" StepFrequency="1" IsInteractive="True" x:Name="primaryPointer2" Value="3"/>
+                            <gauge:LinearShapePointer StepFrequency="1" IsInteractive="True" x:Name="primaryPointerFreezer" Value="3"/>
                         </gauge:SfLinearGauge.MarkerPointers>
                     </gauge:SfLinearGauge>
                     <Label Text="Freezer Compartment" Margin="0,20,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                    <switch:SfSwitch Margin="10,20,10,10" x:Name="fridgeSwitch" StateChanged="fridgeSwitch_StateChanged" >
+                    <switch:SfSwitch Margin="10,20,10,10" IsOn="True" x:Name="fridgeSwitch" >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup  x:Name="CommonStates">
                                 <VisualState x:Name="On">
@@ -173,4 +175,8 @@
             </cards:SfCardView>
         </VerticalStackLayout>
     </ScrollView>
+    </ContentView.Content>
+    <ContentView.Behaviors>
+        <local:KitchenBehavior/>
+    </ContentView.Behaviors>
 </ContentView>

@@ -5,9 +5,9 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
              xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu"
              xmlns:badgeView="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:local="clr-namespace:SmartHome.Behaviors"
              x:Class="SmartHome.CameraViewCommon">
-
-
+    <ContentPage.Content>
     <Grid>
         <camera:CameraView x:Name="cameraView" WidthRequest="300" HeightRequest="400"
                            ScaleX="2" ScaleY="3"
@@ -24,14 +24,14 @@
                     <ColumnDefinition Width="0.8*"/>
                     <ColumnDefinition Width="0.1*"/>
                 </Grid.ColumnDefinitions>
-                <buttons:SfButton Margin="5" Clicked="SfButton_Clicked" Text="&#xE7EA;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons"  Grid.Column="0" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                <buttons:SfButton Margin="5" x:Name="backButton" Text="&#xE7EA;" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons"  Grid.Column="0" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                 <Label x:Name="cameraName" Text="Camera" TextColor="White" VerticalOptions="Center" Grid.Column="1" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                <badgeView:SfBadgeView WidthRequest="60" HeightRequest="60" Grid.Column="2">
+                    <badgeView:SfBadgeView x:Name="notificationIndicator" WidthRequest="60" HeightRequest="60" Grid.Column="2">
                     <badgeView:SfBadgeView.BadgeSettings>
-                        <badgeView:BadgeSettings x:Name="indicatorButton"  Type="Error"  Offset="-5, 2" Position="TopRight" Icon="Dot"/>
+                        <badgeView:BadgeSettings Type="Error"  Offset="-5, 2" Position="TopRight" Icon="Dot"/>
                     </badgeView:SfBadgeView.BadgeSettings>
                     <badgeView:SfBadgeView.Content>
-                        <buttons:SfButton Margin="5" Text="&#xEA8F;" FontSize="20" FontAttributes="Bold" Clicked="SfButton_Clicked_3" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                        <buttons:SfButton Margin="5" Text="&#xEA8F;" FontSize="20" FontAttributes="Bold" x:Name="notificationButton" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="FontIcons" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                     </badgeView:SfBadgeView.Content>
                 </badgeView:SfBadgeView>
             </Grid>
@@ -39,14 +39,14 @@
                 <buttons:SfButton HorizontalOptions="End" Margin="5,100,5,5" Text="&#xF127;" FontAttributes="Bold" TextColor="#b94444"  FontFamily="FontIcons" Grid.Column="0" Background="{AppThemeBinding Light=#282828, Dark=White}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
                 <buttons:SfButton HorizontalOptions="End" Margin="5,5,5,5" Text="&#xE04F;" FontSize="20" TextColor="{AppThemeBinding Light=#282828, Dark=White}" FontFamily="MaterialIcons" FontAttributes="Bold" Grid.Column="0" Background="{AppThemeBinding Light=White, Dark=#282828}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
             </StackLayout>
-            <Grid Margin="20" Grid.Row="2">
+            <Grid x:Name="BottomLayout" Margin="20" Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
                     <ColumnDefinition Width="0.8*"/>
                     <ColumnDefinition Width="0.1*"/>
                 </Grid.ColumnDefinitions>
-                <buttons:SfButton Margin="5" Text="&#xE96F;" FontAttributes="Bold" TextColor="{AppThemeBinding Light=White, Dark=#282828}" FontFamily="FontIcons" VerticalOptions="End" Clicked="SfButton_Clicked_1" Grid.Column="0" Background="{AppThemeBinding Light=#282828, Dark=White}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
-                <radialMenu:SfRadialMenu Closing="SfRadialMenu_Closing" Grid.Column="1" EnableRotation="False" CenterButtonBackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" CenterButtonStroke="{AppThemeBinding Light=White, Dark=#282828}" LayoutType="Default" IsOpen="True" SeparatorThickness="0" RimRadius="150" RimColor="Transparent" AbsoluteLayout.LayoutBounds="45,-220"  CenterButtonText="" CenterButtonFontSize="28">
+                <buttons:SfButton Margin="5" Text="&#xE96F;" x:Name="leftButton" FontAttributes="Bold" TextColor="{AppThemeBinding Light=White, Dark=#282828}" FontFamily="FontIcons" VerticalOptions="End" Grid.Column="0" Background="{AppThemeBinding Light=#282828, Dark=White}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                <radialMenu:SfRadialMenu x:Name="controlMenu" Grid.Column="1" EnableRotation="False" CenterButtonBackgroundColor="{AppThemeBinding Light=White, Dark=#282828}" CenterButtonStroke="{AppThemeBinding Light=White, Dark=#282828}" LayoutType="Default" IsOpen="True" SeparatorThickness="0" RimRadius="150" RimColor="Transparent" AbsoluteLayout.LayoutBounds="45,-220"  CenterButtonText="" CenterButtonFontSize="28">
                     <radialMenu:SfRadialMenu.Items>
                         <radialMenu:SfRadialMenuItem SegmentIndex="0" Opacity="0.7" HeightRequest="40" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=#90F0F0F0, Dark=#801C1C1D}" >
                             <radialMenu:SfRadialMenuItem.View>
@@ -70,8 +70,12 @@
                         </radialMenu:SfRadialMenuItem>
                     </radialMenu:SfRadialMenu.Items>
                 </radialMenu:SfRadialMenu>
-                <buttons:SfButton Grid.Column="2" Text="&#xE970;" FontAttributes="Bold" TextColor="{AppThemeBinding Light=White, Dark=#282828}" FontFamily="FontIcons" Margin="5" Clicked="SfButton_Clicked_2" VerticalOptions="End"  Background="{AppThemeBinding Light=#282828, Dark=White}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
+                <buttons:SfButton Grid.Column="2" Text="&#xE970;" x:Name="rightButton" FontAttributes="Bold" TextColor="{AppThemeBinding Light=White, Dark=#282828}" FontFamily="FontIcons" Margin="5" VerticalOptions="End"  Background="{AppThemeBinding Light=#282828, Dark=White}" WidthRequest="60" HeightRequest="60" CornerRadius="80"/>
             </Grid>
         </Grid>
     </Grid>
+    </ContentPage.Content>
+    <ContentPage.Behaviors>
+        <local:CameraViewsPageBehavior/>
+    </ContentPage.Behaviors>
 </ContentPage>
