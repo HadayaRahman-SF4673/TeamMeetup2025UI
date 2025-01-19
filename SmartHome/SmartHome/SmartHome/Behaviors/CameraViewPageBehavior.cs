@@ -1,7 +1,6 @@
 ﻿using Syncfusion.Maui.Core;
 using Syncfusion.Maui.RadialMenu;
 using Syncfusion.Maui.Toolkit.Buttons;
-using System.Windows.Input;
 
 namespace SmartHome.Behaviors
 {
@@ -44,7 +43,7 @@ namespace SmartHome.Behaviors
         }
 
         /// <summary>
-        /// Prompts Display Alert When Clicked.
+        /// Prompts Warning Display Alert When Clicked.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -56,7 +55,7 @@ namespace SmartHome.Behaviors
             }
             if (cameraViewPage != null)
             {
-                cameraViewPage.DisplayAlert("Warning", "Feature will be Updated in Future", "OK");
+                cameraViewPage.DisplayAlert("⚠️ Warning", "Feature will be Updated in Future", "OK");
             }
 
         }
